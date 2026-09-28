@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLOBAL SOCIAL | Multi-Category Store</title>
+    <meta
+      name="description"
+      content="GLOBAL SOCIAL is a modern multi-category dropshipping store with products, cart, checkout, and order tracking."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand-wrap">
+          <div class="brand-mark">GS</div>
+          <div>
+            <p class="brand-name">GLOBAL SOCIAL</p>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="#home">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#categories">Categories</a>
+          <a href="#tracking">Track Order</a>
+          <a href="#offers">Offers</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="#tracking" class="link-btn">Track Order</a>
+          <button class="cart-btn" id="cartButton" aria-label="Shopping cart">
+            Cart <span id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow">Curated for modern life</span>
+            <h1>Shoppable essentials for every lifestyle.</h1>
+            <p>
+              Discover trending gadgets, beauty products, home upgrades, and fashion picks from a
+              fast-growing multi-category marketplace.
+            </p>
+            <div class="hero-actions">
+              <a href="#shop" class="primary-btn">Shop Now</a>
+              <a href="admin.html" class="secondary-btn">Admin Panel</a>
+            </div>
+            <ul class="trust-list">
+              <li><strong>24h</strong> dispatch</li>
+              <li><strong>4.8/5</strong> ratings</li>
+              <li><strong>24/7</strong> support</li>
+            </ul>
+          </div>
+          <div class="hero-visual">
+            <div class="feature-card feature-card-large">
+              <span>Best Seller</span>
+              <h3>Smart Home Kit</h3>
+              <p>Save up to 35% this week</p>
+              <div class="mini-visual">
+                <div class="mini-box blue"></div>
+                <div class="mini-box orange"></div>
+                <div class="mini-box gold"></div>
+              </div>
+            </div>
+            <div class="floating-badge">Free shipping over $79</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories section" id="categories">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">Popular Categories</p>
+            <h2>Shop by interest</h2>
+          </div>
+          <div id="categoryGrid" class="category-grid"></div>
+        </div>
+      </section>
+
+      <section class="section offers" id="offers">
+        <div class="container">
+          <div class="promo-banner">
+            <div>
+              <p class="section-tag light">Flash Sale</p>
+              <h3>Weekend drop: up to 50% off select items</h3>
+            </div>
+            <a href="#shop" class="primary-btn">Explore Offers</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shop" id="shop">
+        <div class="container">
+          <div class="shop-header">
+            <div>
+              <p class="section-tag">Featured collection</p>
+              <h2>New arrivals</h2>
+            </div>
+            <div class="filters" id="productFilters">
+              <button class="filter-btn active" data-category="all">All</button>
+            </div>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+      </section>
+
+      <section class="section tracking" id="tracking">
+        <div class="container tracking-grid">
+          <div class="tracking-card">
+            <p class="section-tag">Track your order</p>
+            <h2>Order status updates</h2>
+            <div class="tracking-form">
+              <input type="text" id="trackingInput" placeholder="Enter order ID, e.g. GS-1001" />
+              <button id="trackingButton" class="primary-btn">Track</button>
+            </div>
+            <div id="trackingResult" class="tracking-result empty">
+              Search by order ID to view order status.
+            </div>
+          </div>
+
+          <div class="benefits-card">
+            <h3>Why customers choose GLOBAL SOCIAL</h3>
+            <ul>
+              <li>Secure payment processing</li>
+              <li>Fast local and international shipping</li>
+              <li>Friendly return support</li>
+              <li>Transparent stock and delivery updates</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart panel">
+      <div class="drawer-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart" class="close-btn" aria-label="Close cart">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="drawer-footer">
+        <div class="totals-row">
+          <span>Subtotal</span>
+          <strong id="subtotalValue">$0.00</strong>
+        </div>
+        <button id="checkoutButton" class="primary-btn full-width">Proceed to Checkout</button>
+      </div>
+    </aside>
+
+    <div id="checkoutModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Checkout</h3>
+          <button id="closeCheckout" class="close-btn" aria-label="Close checkout">×</button>
+        </div>
+        <form id="checkoutForm" class="checkout-form">
+          <div class="field-grid">
+            <label>
+              Full name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" required />
+            </label>
+            <label>
+              Address
+              <input type="text" name="address" required />
+            </label>
+          </div>
+          <div class="payment-box">
+            <p>Payment method</p>
+            <div class="payment-options">
+              <label><input type="radio" name="payment" value="bKash" checked /> bKash</label>
+              <label><input type="radio" name="payment" value="Nagad" /> Nagad</label>
+              <label><input type="radio" name="payment" value="Stripe" /> Stripe</label>
+            </div>
+          </div>
+          <button type="submit" class="primary-btn full-width">Place Order</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="brand-name">GLOBAL SOCIAL</p>
+        </div>
+        <div>
+          <p>support@globalsocial.com</p>
+        </div>
+        <div>
+          <p>© 2026 GLOBAL SOCIAL</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
